@@ -1,0 +1,30 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "This application downloads news articles available via a news api.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "node dist/scraper.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anyweez/scraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anyweez/scraper/issues"
+  },
+  "homepage": "https://github.com/anyweez/scraper#readme",
+  "devDependencies": {
+    "@types/node": "^7.0.0",
+    "@types/request": "0.0.39",
+    "typescript": "^2.1.5"
+  },
+  "dependencies": {
+    "mz": "^2.6.0",
+    "request-promise-native": "^1.0.3"
+  }
+}

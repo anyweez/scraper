@@ -1,0 +1,17 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "lib": ["es2015"],
+        "module": "commonjs",
+        "target": "es5",
+
+        "noImplicitAny": false,
+        "sourceMap": false,
+        "outDir": "./dist"
+    }
+    // "include": [
+        // "scraper.ts",
+        // "stages/*.ts",
+        // "structs/*.ts"
+    // ]
+}
