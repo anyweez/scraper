@@ -1,6 +1,8 @@
 const crypto = require('crypto');
 const fs = require('mz/fs');
 
+import { Source } from './source';
+
 const DURABILITY_CHECK_DURATION = 30000;
 
 export class Record {
@@ -10,13 +12,17 @@ export class Record {
     title: string
     description: string
     publishedAt: Date
+    source: string
 
-    constructor(raw : any) {
+    constructor(raw: any, source?: Source) {
         this.url = raw.url;
         this.author = raw.author;
         this.title = raw.title;
         this.description = raw.description;
         this.publishedAt = new Date(Date.parse(raw.publishedAt));
+        // Try to pull the source ID from the source first, or fall back to raw.
+        // The latter is used for loading from disk, the former from new articles.
+        this.source = source ? source.id : raw.source;
 
         this._id = Record.HashOf(this);
     }
@@ -29,9 +35,9 @@ export class Record {
 export class RecordSet {
     records = [];
     ids = new Set();
-    path : string
+    path: string
 
-    constructor(path : string) {
+    constructor(path: string) {
         this.path = path;
 
         fs.exists(path).then(exists => {
@@ -41,14 +47,14 @@ export class RecordSet {
         this._makeDurable();
     }
 
-    add(r : Record) {
+    add(r: Record) {
         if (!this.exists(r)) {
             this.records.push(r);
             this.ids.add(r._id);
         }
     }
 
-    exists(r : Record) : boolean {
+    exists(r: Record): boolean {
         return this.ids.has(r._id);
     }
 
@@ -78,6 +84,10 @@ export class RecordSet {
         fs.writeFileSync(this.path, JSON.stringify(rs));
     }
 
+    /**
+     * Load existing data from a file. This is the opposite operation of save()
+     * above and needs to read an identical format.
+     */
     _load() {
         fs.readFile(this.path)
             .then(content => {

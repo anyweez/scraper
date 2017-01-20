@@ -4,7 +4,7 @@ import { Source } from './structs/source';
 import { fetchLatest } from './stages/fetch';
 import { URLS } from './urls';
 
-const ARTICLE_CHECK_INTERVAL = 60000; // once per minute
+const ARTICLE_CHECK_INTERVAL = 5 * 60 * 1000; // once every five minutes
 
 function main() {
     /* Fetch all news sources once, then check each of those sources on an interval. */
