@@ -1,8 +1,8 @@
 # scraper: download news articles
-This application downloads news articles available via a news api.
+This application downloads news articles available via a news api and dumps raw HTML into a `news/` subdirectory. It regularly polls all supported news sites.
 
 ## Inputs
-News is being pulled from the [News API](https://newsapi.org/), and content is being downloaded directly as HTML.
+News is being pulled from the [News API](https://newsapi.org/); all sources are polled every couple of minutes and new articles are downloaded once discovered.
 
 ## Outputs
 

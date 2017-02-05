@@ -8,7 +8,6 @@ const ARTICLE_CHECK_INTERVAL = 5 * 60 * 1000; // once every five minutes
 
 function main() {
     /* Fetch all news sources once, then check each of those sources on an interval. */
-
     request(URLS.sources())
         .then(response => {
             const sources : Array<Source> = JSON.parse(response).sources.map(source => new Source(source));

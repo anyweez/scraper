@@ -1,4 +1,5 @@
 const request = require('request-promise-native');
+const scrapeurl = require('scrapeurl');
 const fs = require('mz/fs');
 
 import { Source } from '../structs/source';
@@ -34,16 +35,16 @@ export function fetchLatest(source: Source) {
  * the recordset.
  */
 export function getArticle(record: Record) {
-    request({
-        uri: record.url,
-        maxRedirects: 5,
-        headers: { 
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.65 Safari/537.31'
-        },
-    }).then(content => {
-        fs.writeFileSync(`news/${record._id}.html`, content);
-        rs.add(record);
-    }).catch(err => {
-        console.warn(`Couldn't fetch article: likely paywalled or timed out.`);
+    scrapeurl({
+        url: record.url,
+    }).done(response => {
+        if (response.text && response.text.length > 0) {
+            fs.writeFileSync(`news/${record._id}.html`, response.text);
+            rs.add(record);
+        } else {
+            console.warn(`Warning: empty body`);
+        }
+    }).fail((err, response) => {
+        console.error(err);
     });
 }
