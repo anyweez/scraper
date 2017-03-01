@@ -1,0 +1,12 @@
+[
+    {
+        "name": "The New York Times",
+        "slug": "the-new-york-times",
+        "type": "newsapi"
+    },
+    {
+        "name": "The Next Web",
+        "slug": "the-next-web",
+        "type": "newsapi"
+    }
+]
