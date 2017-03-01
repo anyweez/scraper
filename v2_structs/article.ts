@@ -14,11 +14,16 @@ export class Article {
         this.published = new Date(Date.parse(raw.publishedAt));
         this.url = raw.url;
         this.title = raw.title;
+        this.source = source;
 
         this.id = Article.HashOf(this);
     }
 
     static HashOf(article: Article) : string {
         return crypto.createHash('md5').update(article.url).digest('hex');
+    }
+
+    fetch() : Promise<string> {
+        return this.source.fetch(this);
     }
 };

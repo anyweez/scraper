@@ -8,5 +8,65 @@
         "name": "The Next Web",
         "slug": "the-next-web",
         "type": "newsapi"
+    },
+    {
+        "name": "ABC News AU",
+        "slug": "abc-news-au",
+        "type": "newsapi"
+    },
+    {
+        "name": "Ars Technica",
+        "slug": "ars-technica",
+        "type": "newsapi"
+    },
+    {
+        "name": "Associated Press",
+        "slug": "associated-press",
+        "type": "newsapi"
+    },
+    {
+        "name": "BBC News",
+        "slug": "bbc-news",
+        "type": "newsapi"
+    },
+    {
+        "name": "BBC Sport",
+        "slug": "bbc-sport",
+        "type": "newsapi"
+    },
+    {
+        "name": "Bild",
+        "slug": "bild",
+        "type": "newsapi"
+    },
+    {
+        "name": "Bloomberg",
+        "slug": "bloomberg",
+        "type": "newsapi"
+    },
+    {
+        "name": "Business Insider",
+        "slug": "business-insider",
+        "type": "newsapi"
+    },
+    {
+        "name": "Business Insider UK",
+        "slug": "business-insider-uk",
+        "type": "newsapi"
+    },
+    {
+        "name": "Buzzfeed",
+        "slug": "buzzfeed",
+        "type": "newsapi"
+    },
+    {
+        "name": "CNBC",
+        "slug": "cnbc",
+        "type": "newsapi"
+    },
+    {
+        "name": "CNN",
+        "slug": "cnn",
+        "type": "newsapi"
     }
 ]

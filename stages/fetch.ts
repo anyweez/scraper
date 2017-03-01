@@ -46,5 +46,6 @@ export function getArticle(record: Record) {
         }
     }).fail((err, response) => {
         console.error(err);
+        console.error(`\tURL: ${record.url}\n\tStatus: ${err.status}`);
     });
 }
